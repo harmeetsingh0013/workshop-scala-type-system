@@ -1,5 +1,5 @@
 
-// First go to 06-invariance-benifits.java scratch
+// First go to 06-invariance-benefits.java scratch
 
 val comics: Array[String] = Array("IronMan", "Hulk", "DrStrange")
 val objects: Array[AnyRef] = comics.asInstanceOf[Array[AnyRef]]

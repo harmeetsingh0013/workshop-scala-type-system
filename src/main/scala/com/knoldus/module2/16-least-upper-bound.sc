@@ -15,16 +15,17 @@ case class Flash(team: String) extends DC
 val batMan = BatMan("JusticeLeague")
 val hulk = Hulk("Avengers")
 
+// Use cases of Reasons of upper bounds
+// -- If we need to access some common property from the type hierarchy
+
 case class Tower[T <: SuperHero](superHero: T) {
     override def toString : String = s"This is the ${superHero.team} tower"
     def helpMe : T = superHero
 }
 
-val tower1 = Tower(batMan)
-val tower2 = Tower(hulk)
+val tower1 : Tower[BatMan] = Tower[BatMan](batMan)
+val tower2 : Tower[Hulk] = Tower[Hulk](hulk)
 
-// Use cases of Reasons of upper bounds
-// -- If we need to access some common property from the type hierarchy
 // -- Without lower bound we are not able to restrict with specific type hierarchy
 
 // Take an second example
