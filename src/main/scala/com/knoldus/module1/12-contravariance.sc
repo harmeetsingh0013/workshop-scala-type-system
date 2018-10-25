@@ -1,5 +1,3 @@
-import scala.util.Random
-
 abstract class SuperHero { val team: String }
 
 abstract class Marvel extends SuperHero
@@ -30,7 +28,7 @@ def thorFanClub(club: FanClub[Thor]): Unit = {
 
 val drStrangeClub = FanClub[DrStrange]("Wizards")
 val marvelClub = FanClub[Marvel]("Marvel")
-val superHeroClub = FanClub[Marvel]("Super Heros")
+val superHeroClub = FanClub[SuperHero]("Super Heros")
 
 drStrangeFanClub(drStrangeClub)
 drStrangeFanClub(marvelClub)

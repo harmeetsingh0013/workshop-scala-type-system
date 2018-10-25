@@ -1,15 +1,37 @@
-def foo(x: Any): String =
-    s"Hello ! I received a $x"
+abstract class SuperHero { val team: String }
 
-def bar(x: String): Any = foo(x)
+abstract class Marvel extends SuperHero
 
-bar("Test")
-foo("Test")
+case class DrStrange(team: String) extends Marvel
+case class Hulk(team: String) extends Marvel
 
-// Create custom Function trait
+abstract class DC extends SuperHero
 
-trait Function[Arg, Return]
+case class BatMan(team: String) extends DC
+case class Flash(team: String) extends DC
 
-val x = new Function[Any, String] {}
+trait Movie {
+    def description: String
+}
 
-//val y: Function[String, Any] = x
+case class Romantic(description: String) extends Movie
+case class Action(description: String) extends Movie
+
+def releaseMovie(f: Hulk => Movie) : Movie = f(Hulk("Avengers"))
+
+val marvelMovie: Marvel => Movie = {
+    marvel => Action(s"${marvel.team} movies are always blockbuster")
+}
+
+releaseMovie(marvelMovie)
+
+// Another reason why Contra-variance allows super type only rather than subtype
+
+/*def releaseMovie(f: SuperHero => Movie) : Movie =
+    f(Hulk("Avengers"))
+
+val dcMovie: BatMan => Movie =
+    dc => Action(s"${dc.team} movies are not look like blockbuster")
+
+releaseMovie(dcMovie)*/
+

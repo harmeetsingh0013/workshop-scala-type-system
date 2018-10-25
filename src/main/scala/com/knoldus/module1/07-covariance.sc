@@ -8,3 +8,6 @@ abstract class Animal {
 class Dog extends Animal {
     override def seakFood: DogFood = new DogFood
 }
+
+val animal: Animal = new Dog()
+val food: Food = animal.seakFood

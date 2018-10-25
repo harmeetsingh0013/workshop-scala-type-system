@@ -52,7 +52,6 @@ val fruit2 = new Box2[Orange](new Orange).fruit
 def wrapTheFruit(fruit: String): Fruit = fruit.toLowerCase match {
     case "orange" => new Orange
     case "apple" => new Apple
-    case _ => throw new ClassNotFoundException("Fruit not found")
 }
 
 val fruit11 = wrapTheFruit("apple")

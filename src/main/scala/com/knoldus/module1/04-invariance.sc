@@ -25,10 +25,10 @@ def callingToBatCave(tower: Tower[BatMan]): String = {
     s"From tower ${tower.helpMe.team}, hero's will be come for save the day"
 }
 
-def callingToSparkTower(tower: Tower[Hulk]): String = {
+def callingToStarkTower(tower: Tower[Hulk]): String = {
     s"From tower ${tower.helpMe.team}, hero's will be come for save the day"
 }
 
 
 val team1 = callingToBatCave(tower1)
-val team2 = callingToSparkTower(tower2)
+val team2 = callingToStarkTower(tower2)

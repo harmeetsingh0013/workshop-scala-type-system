@@ -1,3 +1,5 @@
+// Class Constructor
+case class Animal(a: Int)
 
 // Type Constructor
 case class Bowl[T](content: T)
