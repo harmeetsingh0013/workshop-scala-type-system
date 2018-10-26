@@ -60,12 +60,14 @@ class HulkTower(val superHero: Hulk) extends Tower {
 
 val hulkTower2 : HulkTower = new HulkTower(Hulk("Avengers"))
 
-//val dtStrange5: drStrangeTower.SH = hulkTower2.superHero
+/*
+val dtStrange5: drStrangeTower.SH = hulkTower2.superHero
 
-//val hulk5: HulkTower#SH = hulkTower.superHero
+val hulk5: HulkTower#SH = hulkTower.superHero
 
-//val hulk6: HulkTower#SH = hulkTower2.superHero
+val hulk6: HulkTower#SH = hulkTower2.superHero
 
-//val hulk7: hulkTower.SH = hulkTower2.superHero
+val hulk7: hulkTower.SH = hulkTower2.superHero
+*/
 
 // Try with Batman ???

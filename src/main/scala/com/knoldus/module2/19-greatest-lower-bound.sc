@@ -30,7 +30,7 @@ val tower3 = Tower[DrStrange](DrStrange("Avengers"))*/
 
 // Change to one level abstract
 
-//val tower1 = Tower[DC](batMan)
-//val tower2 = Tower[Marvel](hulk)
-//val tower3 = Tower[Marvel](DrStrange("Avengers"))
+/*val tower1 = Tower[DC](batMan)
+val tower2 = Tower[Marvel](hulk)
+val tower3 = Tower[Marvel](DrStrange("Avengers"))*/
 

@@ -1,28 +1,39 @@
-trait CompareT[T] {
-    def >(compareT: T): Boolean
-    def <(compareT: T): Boolean
-}
+case class Distance(meters: Int) {
+    def larger(other: Distance): Distance =
+        if(other.meters > this.meters) other else this
 
-def getInsert[T <: CompareT[T]](item: T, rest: List[T]): List[T] = rest match {
-    case Nil => List(item)
-    case head :: _ if item < head => item :: rest
-    case head :: tail => head :: getInsert(item, tail)
-}
+    def smaller(other: Distance): Distance =
+        if(other.meters < this.meters) other else this
 
-def getSort[T <: CompareT[T]](items: List[T]): List[T] = items match {
-    case Nil => Nil
-    case head :: tail => getInsert(head, getSort(tail))
-}
-
-case class Distance(meters: Int) extends CompareT[Distance] {
-    override def >(compareT : Distance) = this.meters > compareT.meters
-
-    override def <(compareT : Distance) = this.meters < compareT.meters
+    def >(other: Distance): Boolean = this.meters > other.meters
+    def <(other: Distance): Boolean = this.meters < other.meters
 }
 
 val d1 = Distance(10)
 val d2 = Distance(40)
+
+d1 larger d2
+d1 smaller d2
+d1 < d2
+d1 > d2
+
+// Lets take's an example of simple insertion sort
+
+def insertDistance(item: Distance, rest: List[Distance]): List[Distance] = {
+    rest match {
+        case Nil => List(item)
+        case head :: _ if item < head => item :: rest
+        case head :: tail => head :: insertDistance(item, tail)
+    }
+}
+
+def sortDistance(xs: List[Distance]): List[Distance] = xs match {
+    case Nil => Nil
+    case head :: tail => insertDistance(head, sortDistance(tail))
+}
+
 val d3 = Distance(1)
 val d4 = Distance(10)
 
-getSort(List(d1, d2, d3, d4))
+
+sortDistance(List(d1, d2, d3, d4))

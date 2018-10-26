@@ -1,3 +1,7 @@
+// Requirements:
+// I want to restrict the fruit box method parameter range, so
+// I can only replace with fruits not other objects.
+
 abstract class Fruit { def name: String }
 
 case class Orange() extends Fruit { def name = "Orange" }
